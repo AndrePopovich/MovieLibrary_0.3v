@@ -11,6 +11,7 @@ import static com.andre.ui.ConsoleColor.ANSI_YELLOW;
 import com.andre.crud.Crud;
 import com.andre.model.User;
 import com.andre.sf.Filter;
+import com.andre.sf.Seach;
 import com.andre.sf.Sort;
 import java.io.Console;
 import java.io.IOException;
@@ -170,8 +171,9 @@ public class UI {
         "\n5. Сортувати всі фільми по рейтингу" +
         "\n6. Фільтрувати всі фільми по жанру" +
         "\n7. Видалити всі фільми" +
-        "\n8. Вихід з акаунту" +
-        "\n9. Вихід з програми");
+        "\n8. Пошук фільму по назві" +
+        "\n9. Вихід з акаунту" +
+        "\n10. Вихід з програми");
     System.out.print(ANSI_CYAN+"Оберіть варіант входу: " + ANSI_RESET);
     num = s.nextLine();
     switch (num){
@@ -219,9 +221,13 @@ public class UI {
         mainMenu();
         break;
       case "8":
-        startMenu();
+        Seach seach = new Seach();
+        seach.search();
         break;
       case "9":
+        startMenu();
+        break;
+      case "10":
         System.out.println(ANSI_GREEN+ "\n_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
         System.out.println("_-_-_ Ви вийшли з програми _-_-_");
         System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_" + ANSI_RESET);
